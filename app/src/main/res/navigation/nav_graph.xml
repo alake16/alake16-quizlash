@@ -20,9 +20,17 @@
         android:name="com.example.quizlash.view.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_SecondFragment_to_activeQuestionFragment"
+            app:destination="@id/activeQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activeQuestionFragment"
+        android:name="com.example.quizlash.view.ActiveQuestionFragment"
+        android:label="active_question_fragment"
+        tools:layout="@layout/active_question_fragment" >
+        <action
+            android:id="@+id/action_activeQuestionFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

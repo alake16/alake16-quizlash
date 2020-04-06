@@ -10,7 +10,7 @@ interface QuestionDao :
     BaseDao<MultipleChoiceQuestion> {
 
     @Query("SELECT * from MultipleChoiceQuestion")
-    fun getAllQuestions(): LiveData<List<MultipleChoiceQuestion>>
+    fun getAllQuestions(): List<MultipleChoiceQuestion>
 
     @Query("DELETE FROM MultipleChoiceQuestion")
     fun deleteAllQuestions()
@@ -19,5 +19,5 @@ interface QuestionDao :
     fun getQuestions(id_list: List<String>): List<MultipleChoiceQuestion>
 
     @Query("SELECT * FROM MultipleChoiceQuestion WHERE question_id = :id")
-    fun getQuestion(id: String): MultipleChoiceQuestion
+    fun getQuestion(id: String): MultipleChoiceQuestion?
 }

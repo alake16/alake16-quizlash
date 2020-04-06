@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="@string/home" />
 
+    <TextView
+        android:id="@+id/activeQuestionTextView"
+        android:layout_width="148dp"
+        android:layout_height="166dp"
+        android:text="TextView" />
+
 </FrameLayout>

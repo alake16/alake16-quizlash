@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 
 import com.example.quizlash.R
+import com.example.quizlash.service.model.MultipleChoiceQuestion
 import com.example.quizlash.viewmodel.ActiveQuestionViewModel
+import kotlinx.android.synthetic.main.active_question_fragment.*
 
 class ActiveQuestionFragment : Fragment() {
 
@@ -30,7 +33,16 @@ class ActiveQuestionFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ActiveQuestionViewModel::class.java)
-        // TODO: Use the ViewModel
+        // Other code to setup the activity...
+
+        // Create the observer which updates the UI.
+        val activeQuestionObserver = Observer<MultipleChoiceQuestion> { newQuestion ->
+            // Update the UI, in this case, a TextView.
+            activeQuestionTextView.text = newQuestion.prompt
+        }
+
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        viewModel.activeQuestion.observe(this, activeQuestionObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,5 +51,4 @@ class ActiveQuestionFragment : Fragment() {
             findNavController().navigate(R.id.action_activeQuestionFragment_to_FirstFragment)
         }
     }
-
 }

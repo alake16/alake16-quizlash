@@ -1,5 +1,6 @@
 package com.example.quizlash.service.network
 
+import android.content.Context
 import java.lang.Exception
 import java.net.DatagramPacket
 import java.net.DatagramSocket
@@ -8,13 +9,13 @@ import java.net.DatagramSocket
 // https://stackoverflow.com/questions/19540715/send-and-receive-data-on-udp-socket-java-android
 // Woodie was very helpful here. Thanks a lot
 
-class UDPServer: Server {
+class UDPServer(var context: Context): Server {
 
     private val listeners = mutableListOf<UDPListener>()
 
     // Can use composition by setting this to var to be more flexible.
     private val messageSender =
-        UDPClient()
+        UDPClient(NetworkInformation.getNetworkInfo(context))
     private var port = 6000
 
     fun setPort(port_to_set: Int){

@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.quizlash.R
+import com.example.quizlash.service.network.Client
+import com.example.quizlash.service.network.NetworkInformation
+import com.example.quizlash.service.network.Session
+import com.example.quizlash.service.network.UDPClient
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,6 +24,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+        // stub for determining whether a device is client or server
+        // if server, then start session and open invitation to users
+        // else look for active session and add your client info if you'd like to join
+//        var clientInfo = UDPClient(NetworkInformation.getNetworkInfo(this))
+//        var serverInfo
+//        var session : Session = Session()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

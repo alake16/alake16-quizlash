@@ -102,7 +102,7 @@ class RepositoryImpl (
         return quiz_dao.insertQuizWithQuestions(quiz, quiz.questions)
     }
 
-    fun getAllQuestions(): LiveData<List<MultipleChoiceQuestion>>{
+    fun getAllQuestions(): List<MultipleChoiceQuestion>{
         return question_dao.getAllQuestions()
     }
 

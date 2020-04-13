@@ -9,5 +9,8 @@ class ActiveQuestionViewModel : ViewModel() {
     val activeQuestion: MutableLiveData<MultipleChoiceQuestion> by lazy {
         MutableLiveData<MultipleChoiceQuestion>()
     }
-    // TODO: Implement the ViewModel
+
+    init {
+        // TODO: fetch the active question with the correct networking interface
+    }
 }
